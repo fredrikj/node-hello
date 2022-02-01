@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "echo 'I installed'"
+    "postinstall": "curl -L https://github.com/fredrikj/hello/releases/download/v1.0.0/Hello > bin/Hello; chmod +x bin/Hello"
   },
   "repository": {
     "type": "git",
