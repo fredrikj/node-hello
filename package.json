@@ -2,7 +2,7 @@
   "name": "hello",
   "type": "module",
   "version": "1.0.0",
-  "helloVersion": "v1.0.3",
+  "helloVersion": "v1.0.4",
   "description": "Node wrapper of hello",
   "main": "index.js",
   "scripts": {
