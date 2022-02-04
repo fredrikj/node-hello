@@ -1,0 +1,25 @@
+name: Node Hello World
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-20.04
+          - os: windows-2019
+          - os: macos-11
+    runs-on: ${{ matrix.os }}
+    name: "${{ matrix.os }}"
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+    - name: Install it
+      run: npm ci
+    - name: Run test
+      run: npm run test

@@ -12,9 +12,9 @@ async function getArtifact() {
   const url =
     'https://github.com/fredrikj/hello/releases/download/'
     +  `${version}/${filename}`;
-  console.log('I GET', url);
   const response = await fetch(url);
   const data = await response.arrayBuffer();
+  await fs.mkdir('./bin');
   const path = `./bin/${filename}`;
   await fs.writeFile(path, Buffer.from(data));
   await fs.chmod(path, '755');
