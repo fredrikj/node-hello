@@ -1,7 +1,16 @@
 import fetch from 'node-fetch';
 import fs from 'fs/promises';
 
-async function getArtifact(url) {
+async function getHelloVersion() {
+  const packagedata = JSON.parse(await fs.readFile('./package.json'));
+  return packagedata.helloVersion;
+}
+
+async function getArtifact() {
+  const version = await getHelloVersion();
+  const url =
+    `https://github.com/fredrikj/hello/releases/download/${version}/HelloDarwin`;
+  console.log('I GET', url);
   const response = await fetch(url);
   const data = await response.arrayBuffer();
   const path = './bin/Hello';
@@ -9,4 +18,4 @@ async function getArtifact(url) {
   await fs.chmod(path, '755');
 }
 
-getArtifact('https://github.com/fredrikj/hello/releases/download/v1.0.0/Hello');
+getArtifact();
