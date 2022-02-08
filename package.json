@@ -1,13 +1,13 @@
 {
-  "name": "hello",
-  "version": "1.0.0",
+  "name": "fredrik-hello",
+  "version": "0.0.1",
   "helloVersion": "v1.0.4",
   "description": "Node wrapper of hello",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "node dist/test.js",
-    "postinstall": "node dist/getHello.js",
+    "postinstall": "node getHello.js",
     "build": "tsc",
     "prepublish": "npm run build",
     "prepare": "npm run build"

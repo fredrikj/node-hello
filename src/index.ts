@@ -1,13 +1,7 @@
 import {spawn} from 'child_process';
 import {join} from 'path';
 
-const suffix: any = {
-  win32: 'win32.exe',
-  darwin: 'darwin',
-  linux: 'linux'
-}
-
-export const filename = `Hello-${suffix[process.platform]}`;
+import {filename} from '../getHello';
 
 export const sayHello = function() {
   return new Promise((resolve, _reject) => {
