@@ -1,14 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-
-const suffix = {
-  win32: 'win32.exe',
-  darwin: 'darwin',
-  linux: 'linux'
-}
-
-const filename = `Hello-${suffix[process.platform]}`;
+const {filename} = require('./constants');
 
 async function getHelloVersion() {
   const packageJsonFile = path.join(__dirname, 'package.json');
@@ -34,10 +27,6 @@ async function getArtifact() {
   const binpath =  path.join(bindir, filename);
   fs.writeFileSync(binpath, Buffer.from(data));
   fs.chmodSync(binpath, '755');
-}
-
-module.exports = {
-  filename
 }
 
 getArtifact();

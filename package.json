@@ -9,7 +9,6 @@
     "test": "node dist/test.js",
     "postinstall": "node getHello.js",
     "build": "tsc",
-    "prepublish": "npm run build",
     "prepare": "npm run build"
   },
   "repository": {

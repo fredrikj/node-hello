@@ -1,7 +1,7 @@
 import {spawn} from 'child_process';
 import {join} from 'path';
 
-import {filename} from '../getHello';
+import {filename} from './constants';
 
 export const sayHello = function() {
   return new Promise((resolve, _reject) => {
