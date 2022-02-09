@@ -3,14 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const {filename} = require('./constants');
 
-async function getHelloVersion() {
+async function getVersion() {
   const packageJsonFile = path.join(__dirname, 'package.json');
   const packagedata = JSON.parse(fs.readFileSync(packageJsonFile).toString());
-  return packagedata.helloVersion;
+  return packagedata.artifactVersion;
 }
 
 async function getArtifact() {
-  const version = await getHelloVersion();
+  const version = await getVersion();
   const url =
     'https://github.com/fredrikj/hello/releases/download/'
     +  `${version}/${filename}`;

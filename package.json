@@ -1,13 +1,13 @@
 {
   "name": "fredrik-hello",
   "version": "0.0.1",
-  "helloVersion": "v1.0.7",
+  "artifactVersion": "v1.0.7",
   "description": "Node wrapper of hello",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "node dist/test.js",
-    "postinstall": "node getHello.js",
+    "postinstall": "node getArtifact.js",
     "build": "tsc",
     "prepare": "npm run build"
   },
