@@ -4,18 +4,19 @@ import {Observable, Subscriber, TeardownLogic} from 'rxjs';
 
 import {filename} from './constants';
 
-export const runExecutable = function(): Observable<number> {
+export const runExecutable = function(args: string[] = []): Observable<number> {
   return new Observable((subscriber: Subscriber<number>) => {
-    const child = spawn(join(__dirname, `./bin/${filename}`));
+    const child = spawn(join(__dirname, `./bin/${filename}`), args);
     child.stdout.on('data', (data) => {
       const progress = parseInt(data.toString(), 10);
-      if (progress === 100) {
-        return subscriber.complete();
-      }
       subscriber.next(progress);
     });
-    child.stderr.on('data', (data) => {
-      subscriber.error(data.toString());
+    child.on('close', (code) => {
+      if (code === 0) {
+        subscriber.complete();
+      } else {
+        subscriber.error(code);
+      }
     });
     const cleanupLogic: TeardownLogic = function() {
       child.kill();

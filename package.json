@@ -1,7 +1,7 @@
 {
   "name": "fredrik-hello",
   "version": "0.0.1",
-  "artifactVersion": "v1.0.7",
+  "artifactVersion": "v1.0.8",
   "description": "Node wrapper of hello",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
