@@ -14,7 +14,12 @@ async function getArtifact() {
   const url =
     'https://github.com/fredrikj/hello/releases/download/'
     +  `${version}/${filename}`;
+  console.log(`GET ${url}`);
   const response = await fetch(url);
+  if (response.status !== 200) {
+    const errorMsg = `${response.status} ${await response.text()}`;
+    throw Error(errorMsg);
+  }
   const data = await response.arrayBuffer();
   const distdir = path.join(__dirname, `dist`);
   if (!fs.existsSync(distdir)) {
