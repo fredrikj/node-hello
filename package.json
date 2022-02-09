@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/fredrikj/node-hello#readme",
   "dependencies": {
-    "@types/node": "^17.0.14",
     "node-fetch": "^2.6.7",
-    "rxjs": "^7.5.3",
+    "rxjs": "^7.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.16",
     "typescript": "^4.5.5"
   }
 }
