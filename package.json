@@ -5,11 +5,15 @@
   "description": "Node wrapper of hello",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/*js",
+    "dist/*ts"
+  ],
   "scripts": {
     "test": "node dist/test.js",
     "postinstall": "node getArtifact.js",
     "build": "tsc",
-    "prepare": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
