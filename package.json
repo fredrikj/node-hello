@@ -1,13 +1,15 @@
 {
   "name": "fredrik-hello",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "artifactVersion": "v1.0.8",
   "description": "Node wrapper of hello",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/*js",
-    "dist/*ts"
+    "dist/*ts",
+    "getArtifact.js",
+    "constants.js"
   ],
   "scripts": {
     "test": "node dist/test.js",
