@@ -1,6 +1,6 @@
 {
   "name": "fredrik-hello",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "artifactVersion": "v1.0.8",
   "description": "Node wrapper of hello",
   "main": "dist/index.js",

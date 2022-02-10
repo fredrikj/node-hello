@@ -6,7 +6,9 @@ import {filename} from './constants';
 
 export const runExecutable = function(args: string[] = []): Observable<number> {
   return new Observable((subscriber: Subscriber<number>) => {
-    const child = spawn(join(__dirname, `./bin/${filename}`), args);
+    const exePath = join(__dirname, `./bin/${filename}`);
+    console.log(`runExecutable ${exePath} with args ${args}`);
+    const child = spawn(exePath, args);
     child.on('error', (err) => {
       subscriber.error(err);
     });
