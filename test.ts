@@ -7,5 +7,6 @@ const observer: Observer<number> = {
   complete: () => console.log('COMPLETE')
 };
 
-runExecutable(['error']).subscribe(observer);
+runExecutable({exePath: '/does-not-exist/here'}).subscribe(observer);
+runExecutable({args: ['error']}).subscribe(observer);
 runExecutable().subscribe(observer);

@@ -4,10 +4,13 @@ import {Observable, Subscriber, TeardownLogic} from 'rxjs';
 
 import {filename} from './constants';
 
-export const runExecutable = function(args: string[] = []): Observable<number> {
+export const runExecutable = function(
+  {
+    exePath = join(__dirname, `./bin/${filename}`),
+    args = []
+  }: {exePath?: string, args?: string[]} = {}): Observable<number> {
   return new Observable((subscriber: Subscriber<number>) => {
-    const exePath = join(__dirname, `./bin/${filename}`);
-    console.log(`runExecutable ${exePath} with args ${args}`);
+    console.log(`runExecutable ${exePath}${args.length ? ` with args ${args}` : ''}`);
     const child = spawn(exePath, args);
     child.on('error', (err) => {
       subscriber.error(err);
