@@ -3,6 +3,7 @@ import {join} from 'path';
 import {Observable, Subscriber, TeardownLogic} from 'rxjs';
 
 import {filename} from './constants';
+export {filename} from './constants';
 
 export const runExecutable = function(
   {
